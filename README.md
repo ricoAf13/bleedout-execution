@@ -9,7 +9,6 @@ By default, the Skyrim engine handles bleedout NPCs very poorly when it comes to
 * **Bleedout & GetUp Execution:** Seamlessly triggers killmoves on enemies crawling on the ground (Bleedout) or currently trying to stand back up (GetUp).
 * **Pre-Hit & Post-Hit Triggers:** Utilizes both `AttackActionHook` (triggers *before* the weapon swings to prevent physics collision issues) and `ProcessHitHook` to guarantee stable execution.
 * **Deferred Task Queuing:** Heavily inspired by *Valhalla Combat*, the plugin offloads the actual `_playPairedIdle` execution to the `SKSE::GetTaskInterface()` game thread queue. This completely solves the infamous engine bug where NPCs die instantly before the animation finishes.
-* **Kaputt Integration:** Fully utilizes the robust condition-filtering and animation tagging system from the **Kaputt** mod. It respects weapon types, attacker/victim races, and angle conditions perfectly.
 * **Configurable:** JSON-based configuration allows you to tweak execution probabilities, skip essential/protected NPCs, and toggle debug logging.
 
 ## 📦 Requirements
@@ -17,7 +16,7 @@ By default, the Skyrim engine handles bleedout NPCs very poorly when it comes to
 To use this mod, you need:
 * Skyrim Special Edition or Anniversary Edition
 * [SKSE64](https://skse.silverlock.org/)
-* [Kaputt - The Ultimate Killmove Manager](https://www.nexusmods.com/skyrimspecialedition/mods/67012) (Required for animation configuration and tags)
+* [Kaputt - The Ultimate Killmove Manager](https://www.nexusmods.com/skyrimspecialedition/mods/67012) (Required for animation configuration and tags. Only the .esp plugin and SKSE\plugins\Kaputt\anims\vanilla.json are needed)
 
 To build the project from source, you need:
 * C++23 Compiler (MSVC)
@@ -74,7 +73,7 @@ The core challenge of this mod was circumventing Skyrim's hardcoded execution ha
 
 ## 🙏 Acknowledgements & Credits
 
-* **[Kaputt](https://github.com/Qudix/kaputt)** by Qudix: This plugin utilizes Kaputt's animation file structure, IdleTagger concept, and logic for determining the correct paired idle conditions.
+* **[Kaputt](https://github.com/Pentalimbed/kaputt** by Pentalimbed (ProfJack): This plugin utilizes Kaputt's animation file structure, IdleTagger concept, and logic for determining the correct paired idle conditions.
 * **[Valhalla Combat](https://github.com/dTry/ValhallaCombat)** by dTry: The task-queued paired idle execution method, which single-handedly solved the "instant death on killmove" engine bug, was referenced from Valhalla Combat's brilliant execution handler.
 * The **SKSE/CommonLibSSE** community.
 

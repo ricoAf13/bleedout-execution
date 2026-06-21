@@ -1,0 +1,12 @@
+build/
+.xmake/
+*.user
+*.sln
+*.vcxproj*
+.vs/
+*.dll
+*.pdb
+*.lib
+*.exp
+*.obj
+*.o
